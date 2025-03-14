@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FUCK THE DAY ONES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+    /* Container for the enter button */
+    #buttonContainer, 
+    /* Container for the main content */
+    #mainContent {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* Style for the enter button image */
+    #buttonContainer {
+      cursor: pointer;
+    }
+    #buttonContainer img {
+      max-width: 50vw;
+      max-height: 50vh;
+      object-fit: contain;
+    }
+    /* Main content is hidden initially */
+    #mainContent {
+      display: none;
+      flex-direction: column;
+    }
+    /* Style for the cover image */
+    #mainContent img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Button container showing an image that acts as the "enter" button -->
+  <div id="buttonContainer">
+    <img id="enterButton" src="button.jpg" alt="Enter">
+  </div>
+  
+  <!-- Main content: Audio element and cover image -->
+  <div id="mainContent">
+    <audio id="backgroundAudio" loop>
+      <source src="song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <img src="cover.jpg" alt="Cover Image">
+  </div>
+  
+  <script>
+    // When the button image is clicked, play the audio and show the cover image.
+    document.getElementById('buttonContainer').addEventListener('click', function() {
+      var audio = document.getElementById('backgroundAudio');
+      // Start audio playback
+      audio.play().catch(function(error) {
+        console.log('Audio playback failed:', error);
+      });
+      // Hide the button and show the main content
+      document.getElementById('buttonContainer').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
